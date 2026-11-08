@@ -1,298 +1,337 @@
-<<<<<<< HEAD
-# BANKORA – Bank Marketing Intelligence Platform
+# BANKORA — Bank Marketing Intelligence Platform
 
-> **Academic Capstone Project & Production Evaluation:** Customer Term Deposit Subscription Prediction Using Machine Learning  
-> **Brand & Tagline:** **BANKORA** – *Intelligent Banking. Smarter Decisions.*
-
----
-
-## 1. Executive Summary & Project Identity
-
-**BANKORA** is an end-to-end, production-grade fintech machine learning and decision intelligence software platform. It enables retail banking institutions to accurately predict customer propensity to subscribe to long-term deposits (`y = yes` vs. `y = no`), identify high-value prospects prior to outbound telemarketing, eliminate contact center fatigue, and benchmark 5 supervised machine learning classification algorithms.
-
-### Key Architectural Pillars
-
-- **Original Project Identity**: Deep midnight navy aesthetic (`#070B19`, `#0B1024`), electric blue (`#2563EB`) and violet (`#7C3AED`) accents, glassmorphic card treatments, high-density financial data tables, and custom geometric SVG branding.
-- **Production-Style Authentication**: Real user registration, bcrypt password hashing (12 salt rounds), dual-token JWT authentication (in-memory access token + HTTP-only refresh cookies), brute-force rate limiting (5 attempts / 15 minutes), single-use cryptographic password reset tokens, and authenticated password changes. Zero hardcoded credentials or demo accounts.
-- **Leakage-Free Machine Learning**: Specifically addresses the well-known telemarketing data leakage flaw by providing a **Pre-Call Prediction Pipeline** that excludes call `duration` (which is only known *after* a phone conversation concludes). A separate **Post-Call Benchmark Pipeline** is provided for post-contact follow-up prioritization.
-- **Persistent SQLite Database**: Real database storage in `backend/bankora.db` containing user identities, refresh tokens, password reset tokens, customer prediction audit history, workspace preferences, and dataset metadata.
-- **Automated Verification & Auditing**: Ships with an end-to-end test suite (`scripts/test_audit.ts`) verifying all 28 API routes, authentication workflows, ML predictions, and reporting pipelines.
+> **Intelligent Banking. Smarter Decisions.**  
+> An end-to-end bank marketing analytics and machine-learning dashboard for exploring campaign data, understanding customers, and estimating term-deposit subscription propensity.
 
 ---
 
-## 2. Technology Stack
+## Project Overview
 
-| Layer | Technologies & Libraries | Purpose |
-| :--- | :--- | :--- |
-| **Frontend Framework** | React 19, TypeScript, Vite, Tailwind CSS v4 | Ultra-responsive, type-safe fintech dashboard SPA |
-| **Data Visualization** | Recharts, Lucide React, Framer Motion (`motion`) | Real-time interactive charts, icons, and smooth route transitions |
-| **Reports Engine** | `jspdf`, `jspdf-autotable` | Client-side 4-page executive PDF report generation |
-| **Unified Full-Stack Server** | Node.js, Express, `better-sqlite3`, JWT, Bcrypt | Live server running dev/prod on port 3000 with real SQLite |
-| **Machine Learning Engine** | Scikit-learn, Pandas, NumPy, Joblib | 5 classification models, stratified train/test split, ROC-AUC |
-| **Python Backend (FastAPI)** | FastAPI, Pydantic, SQLAlchemy, Uvicorn | Python REST API entry point (`backend/app/main.py`) |
-| **Database** | SQLite 3 (`backend/bankora.db`) | Relational persistence with foreign key cascade integrity |
+**BANKORA** is a full-stack analytics application built around the UCI Bank Marketing dataset. It helps banking and marketing teams explore customer and campaign data, compare machine-learning models, and estimate whether a customer may subscribe to a term deposit.
 
----
+The project combines an interactive dashboard, user authentication, dataset management, customer-level predictions, prediction history, model evaluation, and downloadable reports in one workspace.
 
-## 3. Machine Learning Methodology
+This repository contains the application source code, sample dataset, backend implementation, and supporting machine-learning files. The interface and project structure are maintained as a standalone code project; Google AI Studio is the development environment/reference workflow, not a runtime dependency required by the local application.
 
-The machine learning system is trained on the canonical **UCI Bank Marketing Dataset** (45,211 raw records; 17 attributes), sourced from Portuguese retail banking direct telemarketing campaigns between May 2008 and November 2010.
+## Main Features
 
-### 3.1 Pre-Call (Leakage-Free) vs. Post-Call Benchmark
+### Analytics dashboard
+- Overview of key dataset and campaign indicators.
+- Customer subscription and non-subscription summaries.
+- Charts and visual analytics for campaign performance.
+- Customer insights with demographic and financial filters.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        UCI Bank Marketing Dataset                       │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │
-        ┌───────────────────────────┴───────────────────────────┐
-        ▼                                                       ▼
-┌───────────────────────────────┐       ┌───────────────────────────────┐
-│     PRE-CALL PIPELINE         │       │     POST-CALL BENCHMARK       │
-│  (True Production Deploy)     │       │     (Analytical Baseline)     │
-├───────────────────────────────┤       ├───────────────────────────────┤
-│ • Excludes `duration`         │       │ • Includes `duration`         │
-│ • Prevents telemarketing      │       │ • Used for post-call lead     │
-│   data leakage                │       │   nurturing prioritization    │
-│ • Stratified 80/20 split      │       │ • Stratified 80/20 split      │
-│ • StandardScaler & OneHot     │       │ • Benchmarked on holdout      │
-└───────────────────────────────┘       └───────────────────────────────┘
-```
+### Dataset explorer
+- Preview and search customer records.
+- Filter and sort the dataset.
+- Upload a CSV dataset.
+- Clean the active dataset, restore the bundled default dataset, or clear the active dataset.
+- View dataset metadata, missing values, unique values, and numerical summaries.
 
-### 3.2 Supervised Classification Algorithms Compared
+### Customer prediction
+- Enter customer and campaign attributes to estimate term-deposit subscription propensity.
+- View the predicted class, probability, confidence tier, model information, and recommended next action.
+- Save prediction results to persistent history.
 
-1. **Gradient Boosting Classifier (Champion Model)**:
-   - Sequential boosting ensemble optimizing log-loss with shallow decision trees (`max_depth=4`, `learning_rate=0.08`, `subsample=0.85`).
-   - Achieves the highest holdout **ROC-AUC (~73–74% Pre-Call)** and best balanced F1-score on positive subscription conversions.
-2. **Random Forest Classifier**:
-   - Bagging ensemble of 150 randomized decision trees with balanced bootstrap subsampling (`max_depth=8`, `min_samples_leaf=8`).
-3. **Logistic Regression**:
-   - L2-regularized linear classifier with balanced class weights (`max_iter=1000`). Serves as the transparent econometric baseline.
-4. **Decision Tree (CART)**:
-   - Single interpretable decision tree with cost-complexity pruning (`max_depth=6`, `min_samples_leaf=12`).
-5. **K-Nearest Neighbors (KNN)**:
-   - Instance-based metric classifier with distance weighting (`k=15`, Euclidean metric on standardized feature vectors).
+### Machine-learning evaluation
+- Train and compare five classification approaches:
+  - Gradient Boosting
+  - Random Forest
+  - Logistic Regression
+  - Decision Tree
+  - K-Nearest Neighbors (KNN)
+- Review evaluation measures such as accuracy, precision, recall, F1-score, ROC-AUC, and confusion matrix where available.
+- Inspect the distinction between pre-call and post-call prediction modes.
 
-### 3.3 Holdout Evaluation Metrics
+### User account and workspace
+- User registration and login.
+- Password hashing and token-based session handling.
+- Forgot-password and reset-password flows.
+- Profile and workspace settings.
+- Light/dark theme support.
+- Protected dashboard pages.
 
-All models are evaluated on a held-out test split (20% stratified holdout) using:
-- **Accuracy**: Overall fraction of correct predictions across both classes.
-- **Precision (YES)**: Proportion of predicted subscribers who actually subscribe ($\frac{TP}{TP + FP}$).
-- **Recall (YES)**: Proportion of actual subscribers captured by the model ($\frac{TP}{TP + FN}$).
-- **F1-Score (YES)**: Harmonic mean of precision and recall ($2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}$).
-- **ROC-AUC**: Area Under the Receiver Operating Characteristic Curve.
-- **Confusion Matrix**: Full breakdown of $TP$, $FP$, $TN$, and $FN$ counts.
+### Reports and history
+- Browse, search, filter, and sort previous predictions.
+- Delete individual prediction records or clear prediction history.
+- Generate downloadable PDF reports from the reporting interface.
 
----
+## Application Pages
 
-## 4. SQLite Database Schema
+| Page | Purpose |
+|---|---|
+| Overview | Main KPIs and marketing intelligence summary |
+| Data Explorer | Dataset preview, filtering, upload, cleaning, and reset |
+| Customer Insights | Explore customer segments and attributes |
+| Campaign Analytics | Analyze campaign outcomes and contact patterns |
+| Predict Customer | Submit an individual customer prediction |
+| Model Performance | Compare and retrain machine-learning models |
+| Prediction History | Review and manage saved predictions |
+| Reports | Generate and export analytical reports |
+| Profile | View and update account details |
+| Settings | Manage workspace preferences and dataset actions |
+| About Project | View project information and methodology |
 
-The database is stored in `backend/bankora.db` and enforced via SQLite and SQLAlchemy ORM models:
+Authentication screens include Login, Register, Forgot Password, and Reset Password.
 
-```sql
--- 1. Users Table (Real registered accounts)
-CREATE TABLE users (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  full_name TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
-  phone_number TEXT,
-  password_hash TEXT NOT NULL,
-  role TEXT NOT NULL DEFAULT 'user',
-  is_active INTEGER NOT NULL DEFAULT 1,
-  created_at TEXT NOT NULL,
-  updated_at TEXT NOT NULL
-);
+## Technology Stack
 
--- 2. Refresh Tokens Table (Cryptographic session management)
-CREATE TABLE refresh_tokens (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id INTEGER NOT NULL,
-  token_hash TEXT NOT NULL,
-  expires_at TEXT NOT NULL,
-  revoked INTEGER NOT NULL DEFAULT 0,
-  created_at TEXT NOT NULL,
-  FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
-);
+| Area | Technologies |
+|---|---|
+| Frontend | React 19, TypeScript, Vite |
+| Styling | Tailwind CSS v4 |
+| UI and animation | Motion (`motion/react`), Lucide React |
+| Charts | Recharts |
+| PDF reports | jsPDF, jsPDF-AutoTable |
+| Main application server | Node.js, Express, TypeScript (`tsx`) |
+| Database | SQLite via `better-sqlite3` |
+| Authentication | bcryptjs, JSON Web Tokens, cookie-parser |
+| Python ML/API support | Python, FastAPI, SQLAlchemy, Pydantic |
+| Machine learning | scikit-learn, pandas, NumPy, joblib |
+| AI SDK dependency | `@google/genai` |
 
--- 3. Password Resets Table (Single-use reset tokens)
-CREATE TABLE password_resets (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id INTEGER NOT NULL,
-  token_hash TEXT NOT NULL,
-  expires_at TEXT NOT NULL,
-  used INTEGER NOT NULL DEFAULT 0,
-  created_at TEXT NOT NULL,
-  FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
-);
+## Repository Structure
 
--- 4. Prediction History Table (Audit log of all ML inferences)
-CREATE TABLE prediction_history (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  customer_summary TEXT NOT NULL,
-  input_json TEXT NOT NULL,
-  prediction TEXT NOT NULL,
-  label TEXT NOT NULL,
-  probability REAL NOT NULL,
-  confidence_tier TEXT NOT NULL,
-  model_name TEXT NOT NULL,
-  model_mode TEXT NOT NULL,
-  recommended_action TEXT NOT NULL,
-  created_at TEXT NOT NULL
-);
-
--- 5. User Settings Table
-CREATE TABLE user_settings (
-  key TEXT PRIMARY KEY,
-  value TEXT NOT NULL
-);
-
--- 6. Dataset Meta Table
-CREATE TABLE dataset_meta (
-  id INTEGER PRIMARY KEY CHECK (id = 1),
-  dataset_name TEXT NOT NULL,
-  source_type TEXT NOT NULL,
-  total_rows INTEGER NOT NULL,
-  missing_values INTEGER NOT NULL,
-  duplicate_rows INTEGER NOT NULL,
-  uploaded_at TEXT NOT NULL
-);
+```text
+bank-marketing-intelligence/
+├── backend/
+│   ├── app/
+│   │   ├── database/       # Python database setup
+│   │   ├── schemas/        # Pydantic schemas
+│   │   └── main.py         # FastAPI application
+│   ├── ml/
+│   │   ├── train.py        # Model training utilities
+│   │   ├── predict.py      # Prediction utilities
+│   │   └── evaluate.py     # Model evaluation utilities
+│   ├── saved_models/       # Saved model/evaluation artifacts
+│   ├── requirements.txt    # Python dependencies
+│   ├── run.py              # Python API runner
+│   └── bankora.db          # SQLite database file (if included)
+├── dataset/
+│   └── bank-marketing.csv  # Bundled sample dataset
+├── public/
+│   └── assets/             # Public assets
+├── scripts/
+│   └── test_audit.ts       # API/audit test script
+├── src/
+│   ├── components/         # Reusable UI components
+│   ├── context/            # Authentication context
+│   ├── layouts/            # Dashboard layout
+│   ├── pages/              # Dashboard and authentication pages
+│   ├── server/             # TypeScript ML engine and dataset helpers
+│   ├── services/           # Frontend API client
+│   ├── types/              # Shared TypeScript types
+│   ├── App.tsx             # Main application and page routing
+│   ├── index.css           # Global styles
+│   └── main.tsx            # Frontend entry point
+├── .env.example            # Environment variable template
+├── index.html
+├── package.json
+├── server.ts               # Main Express + SQLite application server
+├── tsconfig.json
+└── vite.config.ts
 ```
 
----
+> The repository includes both a TypeScript/Express application server (`server.ts`) and a Python/FastAPI backend (`backend/app/main.py`). The default `npm run dev` command starts the TypeScript/Express server. The Python backend is a separate entry point and is not started by that command.
 
-## 5. Application Modules & Navigation
+## Requirements
 
-| Module | Route / Page ID | Purpose |
-| :--- | :--- | :--- |
-| **Executive Overview** | `overview` | 7 live calculated KPIs, 8 interactive charts (donut, monthly trends, demographics, loan profiles). |
-| **Data Explorer** | `explorer` | CSV upload (`,`, `;`), schema inspector, missing/unknown values count, quartile stats, live search, sorting, filtering, and data cleaning. |
-| **Customer Insights** | `customers` | Dynamic cohort filtering (Age range slider, job, education, marital, housing/loan) updating 7 charts in real time. |
-| **Campaign Analytics** | `campaigns` | Call frequency fatigue curve, previous outcome lift (`poutcome`), contact communication channel ROI, and duration curves. |
-| **Customer Predictor** | `predict` | 16-attribute customer propensity form, preset demographic personas, real-time ML inference, feature attribution log-odds, and next-best marketing actions. |
-| **Model Performance** | `models` | 5-model comparative benchmark, Pre-Call vs. Post-Call toggle, ROC curves, PR curves, Confusion Matrix, and feature importances. |
-| **Prediction History** | `history` | Persistent SQLite audit log, live search, outcome filter, date sort, detail drawer, single-record deletion, and bulk clear with confirmation. |
-| **Reports Center** | `reports` | Generates 4-page formatted PDF report (`jsPDF`) and exports 4 downloadable CSV datasets. |
-| **Analyst Profile** | `profile` | View registered credentials, update legal name & phone, in-session password change with complexity validation, and logout. |
-| **Settings & Governance** | `settings` | Workspace theme toggle, default pipeline preferences, notification switches, and dataset reset/clean controls. |
-| **About Project** | `about` | Academic capstone documentation, problem statement, objectives, methodology, and 17 UCI attribute definitions. |
+Install the following before running the project:
 
----
+- Node.js (a current LTS release is recommended)
+- npm
+- Python 3.10 or later, only if you intend to run the optional Python backend/ML scripts
+- Git, if you want to clone or version-control the project
 
-## 6. REST API Endpoints
+## Run the Application Locally
 
-### Authentication & User Management
+### 1. Open the project folder
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/auth/register` | Register new user with full name, email, phone, password. Hashes with bcrypt. |
-| `POST` | `/api/auth/login` | Authenticate user credentials. Returns JWT access token and sets refresh cookie. |
-| `POST` | `/api/auth/logout` | Revoke active refresh token and invalidate authentication session. |
-| `POST` | `/api/auth/refresh` | Issue fresh access token using valid refresh token. |
-| `GET` | `/api/auth/me` | Fetch authenticated user profile details from Bearer token. |
-| `PATCH` | `/api/auth/profile` | Update user legal name and phone number. |
-| `POST` | `/api/auth/change-password` | Change password for authenticated user (verifies current password). |
-| `POST` | `/api/auth/forgot-password` | Issue single-use cryptographic password reset token. |
-| `POST` | `/api/auth/reset-password` | Reset password using valid cryptographic reset token. |
+Open the `bank-marketing-intelligence` folder in VS Code. In the VS Code terminal, make sure the current directory is the folder containing the root `package.json`.
 
-### Dataset & Analytics
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/health` | System health check and dataset loaded status. |
-| `POST` | `/api/dataset/upload` | Upload custom UCI CSV dataset and retrain models. |
-| `POST` | `/api/dataset/clean` | Impute missing unknown values and remove duplicate records. |
-| `POST` | `/api/dataset/reset` | Restore built-in canonical UCI Bank Marketing dataset. |
-| `POST` | `/api/dataset/clear` | Unload active dataset from memory. |
-| `GET` | `/api/dataset/summary` | Dataset metadata, column counts, and numerical quartile statistics. |
-| `GET` | `/api/dataset/preview` | Paginated, filterable, sortable dataset records table. |
-| `GET` | `/api/analytics/overview` | Executive KPI calculations and 8 chart distribution payloads. |
-| `GET` | `/api/analytics/customers` | Dynamically filtered customer segmentation metrics. |
-| `GET` | `/api/analytics/campaigns` | Telemarketing contact frequency, channel lift, and duration metrics. |
-
-### Machine Learning & Reports
-
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/predict` | Run trained ML model on customer features and save to SQLite history. |
-| `GET` | `/api/models/performance` | Evaluation metrics, ROC/PR curves, and confusion matrix for 5 models. |
-| `POST` | `/api/models/train` | Retrain all 5 models on the active dataset on-demand. |
-| `GET` | `/api/predictions/history` | Query persistent SQLite prediction audit log with search and filters. |
-| `DELETE` | `/api/predictions/:id` | Delete an individual prediction record by ID. |
-| `DELETE` | `/api/predictions` | Bulk clear all prediction records from SQLite history. |
-| `GET` | `/api/reports/export` | Download CSV exports (`dataset_summary`, `model_metrics`, `prediction_history`, `cleaned_dataset`). |
-| `GET` | `/api/settings` | Retrieve saved workspace settings from SQLite. |
-| `POST` | `/api/settings` | Save workspace settings to SQLite. |
-
----
-
-## 7. Installation & How to Run
-
-### Step 1: Install Dependencies
+### 2. Install Node dependencies
 
 ```bash
 npm install
 ```
 
-### Step 2: Start the Full-Stack Application
+### 3. Configure environment variables
+
+Create a local `.env` file in the project root if your setup requires environment variables. Use `.env.example` as a reference.
+
+**Important security note:** The supplied `.env.example` in this project archive contains values that look like authentication secrets. Do not publish or reuse those values. Replace them with newly generated, private secrets and keep `.env` out of Git. Never paste API keys, JWT secrets, passwords, or production credentials into this README or commit them to GitHub.
+
+Example local configuration (replace every placeholder with a newly generated value):
+
+```env
+PORT=3000
+JWT_SECRET=replace_with_a_long_random_secret
+JWT_REFRESH_SECRET=replace_with_another_long_random_secret
+GOOGLE_API_KEY=your_google_api_key_if_needed
+APP_URL=http://localhost:3000
+```
+
+The application may use defaults for some variables during local development, but production deployments must use strong, unique secrets supplied through the hosting platform's secret manager.
+
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-The unified full-stack server starts on **`http://localhost:3000`**, automatically serving:
-- React frontend with Vite dev middleware
-- Complete REST API on `/api/*`
-- SQLite database in `backend/bankora.db`
-- In-memory trained Scikit-learn equivalent ML models
+The root `package.json` defines this command as `tsx server.ts`. The Express server defaults to port **3000**.
 
-### Step 3: Run the Complete Audit & Integration Test Suite
+Open the local address:
 
-```bash
-npx tsx scripts/test_audit.ts
+```text
+http://localhost:3000
 ```
 
-Runs **28 automated end-to-end integration tests** validating health, user registration, login, token refresh, password changes, ML predictions, model evaluations, dataset operations, and report exports.
+If you set a different `PORT`, open that port instead.
 
-### Step 4 (Optional): Run the Python FastAPI Backend & Scikit-Learn Pipeline
+### 5. Create an account and explore
 
-If running in an external Python environment with dependencies installed:
+1. Open the local application in your browser.
+2. Register a new user account.
+3. Sign in.
+4. Explore the dashboard pages from the navigation.
+5. Try the bundled dataset before uploading your own CSV.
+6. Run a customer prediction and review the saved prediction history.
+
+### Useful commands
+
+| Command | Description |
+|---|---|
+| `npm install` | Install JavaScript/TypeScript dependencies |
+| `npm run dev` | Start the Express + TypeScript development server |
+| `npm start` | Start the same server entry point |
+| `npm run build` | Build the frontend assets with Vite |
+| `npm run preview` | Preview the Vite production build |
+| `npm run lint` | Run the TypeScript compiler check (`tsc --noEmit`) |
+
+## Optional Python Backend
+
+The project also contains a Python FastAPI implementation and machine-learning scripts.
+
+### Install Python dependencies
+
+From the project root:
 
 ```bash
-# 1. Install Python dependencies
+python -m venv .venv
+```
+
+Activate the environment:
+
+**Windows PowerShell**
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS / Linux**
+```bash
+source .venv/bin/activate
+```
+
+Install the packages:
+
+```bash
 pip install -r backend/requirements.txt
-
-# 2. Train all 5 Scikit-learn models and save Joblib artifacts
-python3 -m backend.ml.train
-
-# 3. Start FastAPI on port 8000
-python3 backend/run.py
 ```
 
+Run the Python API using the included runner:
+
+```bash
+python backend/run.py
+```
+
+Check `backend/run.py` for the configured host and port. The Python API is separate from the default `npm run dev` workflow.
+
+## Dataset and Machine-Learning Notes
+
+The project is based on the **UCI Bank Marketing** dataset. Its target field is `y`, which indicates whether a customer subscribed to a term deposit (`yes` or `no`).
+
+The dataset contains customer attributes and campaign-contact information such as age, job, marital status, education, account balance, housing/ personal loans, contact type, campaign timing, and previous campaign outcome.
+
+### Pre-call and post-call prediction
+
+A key modelling consideration is **target leakage**:
+
+- **Pre-call prediction** should not use `duration`, because call duration is only known after the call has finished. Excluding it makes the prediction more appropriate for deciding whom to contact.
+- **Post-call analysis** may include `duration` when the purpose is to analyze a completed interaction or prioritize follow-up.
+
+Model metrics depend on the dataset version, preprocessing, train/test split, and model configuration. Treat model outputs as decision-support estimates, not guarantees.
+
+## API Overview
+
+The main TypeScript server exposes JSON endpoints under `/api`. The frontend API client in `src/services/api.ts` uses routes for:
+
+- Health checks
+- Authentication and account management
+- Overview and campaign analytics
+- Dataset summary, preview, upload, clean, reset, and clear operations
+- Customer insights
+- Customer predictions
+- Model performance and model training
+- Prediction history
+- Workspace settings
+
+For the exact request/response formats and complete route list, refer to `server.ts`, `src/services/api.ts`, and the shared types in `src/types/bankora.ts`.
+
+Health check:
+
+```text
+GET /api/health
+```
+
+## Testing and Quality Checks
+
+Run the TypeScript check:
+
+```bash
+npm run lint
+```
+
+Build the frontend:
+
+```bash
+npm run build
+```
+
+The repository also contains `scripts/test_audit.ts` for API/audit testing. Review the script before running it and make sure the application server and test environment are configured as expected.
+
+## Security and Responsible Use
+
+- Use HTTPS in production.
+- Generate fresh, high-entropy JWT and cookie secrets for every deployment.
+- Store secrets in environment variables or your hosting provider's secret manager.
+- Never commit `.env`, database files containing real user data, private keys, or credentials.
+- Use a secure password-reset delivery mechanism in production.
+- Apply access control and rate limiting to sensitive endpoints.
+- Do not upload customer data unless you have the right to process it.
+- Remove or anonymize personally identifiable information when it is not required.
+- A model prediction is probabilistic and should not be the sole basis for decisions affecting customers.
+
+## Limitations and Deployment Notes
+
+- The default local server is configured to run on port `3000`.
+- The bundled SQLite database is suitable for local development and demonstrations; evaluate a managed database and backup strategy for production.
+- The project contains a Python API in addition to the primary TypeScript server. Choose and document one deployment architecture before deploying; do not assume both servers start together.
+- Configure production secrets, HTTPS, logging, backups, monitoring, and data-retention policies before handling real customer information.
+- Confirm the deployment platform's build and start commands. The root scripts are `npm run build` and `npm start`.
+
+## Project Purpose
+
+BANKORA demonstrates how data analytics and supervised machine learning can support bank marketing campaign planning. It brings data exploration, customer segmentation, propensity prediction, model evaluation, and reporting into a single application.
+
+**BANKORA — Intelligent Banking. Smarter Decisions.**
+
 ---
 
-## 8. Security & Governance Standards
+## Author
 
-- **Password Hashing**: Cryptographic salting with `bcrypt` (cost factor 12). Plaintext passwords are never stored or logged.
-- **Dual-Token Architecture**: Short-lived JWT access tokens (15 minutes) kept in memory; long-lived refresh tokens (7 days) stored hashed in SQLite and exchanged via HTTP-only cookies.
-- **Brute-Force Rate Limiting**: Max 5 failed login attempts per IP/account per 15-minute window before enforced lockout.
-- **SQL Injection Prevention**: 100% parameterized queries using SQLite prepared statements (`db.prepare('... WHERE id = ?')`).
-- **Input Sanitization**: Pydantic schema validation on Python backend; strict TypeScript interfaces and range validation on Express routes.
-- **Data Privacy**: No client API keys exposed; sensitive operations restricted to authenticated sessions.
+Add your name, course, institution, and project links here if this repository is being submitted as an academic or portfolio project.
 
----
+## License
 
-## 9. Academic Capstone Evaluation Checklist
-
-- [x] **Complete Full-Stack Application**: No mock data; real database and live ML inference.
-- [x] **Real Machine Learning Pipeline**: 5 classification algorithms compared using stratified train/test split.
-- [x] **Pre-Call Leakage Prevention**: Call `duration` excluded from pre-call prediction model.
-- [x] **Production Authentication**: Real registration, login, logout, password change, and recovery.
-- [x] **Complete Dashboard Analytics**: 7 KPIs and 8 dynamic charts covering customer and campaign analytics.
-- [x] **Data Explorer & Imputation**: CSV upload, statistical summaries, live search, sorting, and cleaning.
-- [x] **Prediction History Audit Log**: Persisted in SQLite with search, filters, details, and delete.
-- [x] **PDF & CSV Reporting**: Formatted 4-page PDF generation and 4 downloadable CSV datasets.
-- [x] **100% Automated Test Pass Rate**: 28 out of 28 integration tests executed and passing.
-=======
-# BANKORA-Bank-Marketing-Intelligence
-A Machine Learning powered Bank Marketing Intelligence and Customer Subscription Prediction Platform.
->>>>>>> 4fd0aca659190e192ad7cc5ed9fd852e869d057e
+No license file was included in the supplied project archive. Add a `LICENSE` file before presenting this repository as open source.
