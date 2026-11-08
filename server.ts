@@ -15,7 +15,7 @@ import {
 } from './src/server/seedDataset.ts';
 import { BankoraMLEngine, PredictionInput } from './src/server/mlEngine.ts';
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 const app = express();
 
 const JWT_SECRET = process.env.JWT_SECRET || 'bankora_jwt_access_secret_production_key_2026_secure';
