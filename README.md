@@ -145,6 +145,11 @@ Install the following before running the project:
 
 ## Run the Application Locally
 
+## Dataset Source
+UCI Machine Learning Repository --- Bank Marketing
+
+https://archive.ics.uci.edu/dataset/222/bank+marketing
+
 ### 1. Open the project folder
 
 Open the `bank-marketing-intelligence` folder in VS Code. In the VS Code terminal, make sure the current directory is the folder containing the root `package.json`.
