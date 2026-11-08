@@ -1,0 +1,3292 @@
+{
+  "preCall": {
+    "mode": "pre_call",
+    "modeLabel": "Pre-Call Predictive Pipeline (Leakage-Free)",
+    "modeDescription": "Excludes call duration (duration) because call length is unknown before dialing a prospect. Suitable for real-world outbound campaign targeting.",
+    "datasetSize": 1500,
+    "trainSize": 1199,
+    "testSize": 301,
+    "positiveClassRatio": 15.87,
+    "bestModelName": "Gradient Boosting",
+    "bestModelId": "gradient_boosting",
+    "bestModelRocAuc": 72.91,
+    "bestModelF1": 39.29,
+    "trainedAt": "2026-11-08T04:18:44.460Z",
+    "models": [
+      {
+        "id": "gradient_boosting",
+        "name": "Gradient Boosting",
+        "family": "Boosting Ensemble",
+        "accuracy": 77.41,
+        "precision": 34.38,
+        "recall": 45.83,
+        "f1Score": 39.29,
+        "rocAuc": 72.91,
+        "precisionNo": 89.03,
+        "recallNo": 83.4,
+        "f1No": 86.12,
+        "confusionMatrix": {
+          "tn": 211,
+          "fp": 42,
+          "fn": 26,
+          "tp": 22
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0,
+            "y": 0.042,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.004,
+            "y": 0.083,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.016,
+            "y": 0.188,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.059,
+            "y": 0.354,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.126,
+            "y": 0.417,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.209,
+            "y": 0.563,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.352,
+            "y": 0.646,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.553,
+            "y": 0.854,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.715,
+            "y": 0.896,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.83,
+            "y": 0.917,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.929,
+            "y": 1,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.984,
+            "y": 1,
+            "threshold": 0.16
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.042,
+            "y": 1,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.083,
+            "y": 0.8,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.188,
+            "y": 0.692,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.354,
+            "y": 0.531,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.417,
+            "y": 0.385,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.563,
+            "y": 0.338,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.646,
+            "y": 0.258,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.854,
+            "y": 0.227,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.896,
+            "y": 0.192,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.917,
+            "y": 0.173,
+            "threshold": 0.25
+          },
+          {
+            "x": 1,
+            "y": 0.17,
+            "threshold": 0.2
+          },
+          {
+            "x": 1,
+            "y": 0.162,
+            "threshold": 0.16
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 14.14
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 13.48
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 12.03
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 9.51
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 8.39
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 8.25
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 8.19
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 7.06
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 6.58
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 5.08
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 4.79
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 2
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 0.31
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 0.19
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 0
+          }
+        ],
+        "trainTimeMs": 145,
+        "hyperparameters": {
+          "n_estimators": 140,
+          "learning_rate": 0.08,
+          "max_depth": 4,
+          "subsample": 0.85
+        },
+        "isBest": true
+      },
+      {
+        "id": "random_forest",
+        "name": "Random Forest",
+        "family": "Bagging Ensemble",
+        "accuracy": 82.06,
+        "precision": 37.5,
+        "recall": 18.75,
+        "f1Score": 25,
+        "rocAuc": 70.61,
+        "precisionNo": 85.92,
+        "recallNo": 94.07,
+        "f1No": 89.81,
+        "confusionMatrix": {
+          "tn": 238,
+          "fp": 15,
+          "fn": 39,
+          "tp": 9
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.72
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.004,
+            "y": 0.021,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.004,
+            "y": 0.063,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.032,
+            "y": 0.125,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.115,
+            "y": 0.333,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.213,
+            "y": 0.521,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.391,
+            "y": 0.688,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.597,
+            "y": 0.813,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.743,
+            "y": 0.958,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.905,
+            "y": 0.979,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.984,
+            "y": 1,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.992,
+            "y": 1,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.78
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.72
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.021,
+            "y": 0.5,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.063,
+            "y": 0.75,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.125,
+            "y": 0.429,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.333,
+            "y": 0.356,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.521,
+            "y": 0.316,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.688,
+            "y": 0.25,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.813,
+            "y": 0.205,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.958,
+            "y": 0.197,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.979,
+            "y": 0.17,
+            "threshold": 0.2
+          },
+          {
+            "x": 1,
+            "y": 0.162,
+            "threshold": 0.16
+          },
+          {
+            "x": 1,
+            "y": 0.161,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 18.07
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 15.44
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 11.68
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 9.6
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 8.75
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 8.28
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 5.88
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 5.5
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 5.21
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 4.74
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 2.32
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 2.24
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 1.16
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 1.14
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 0
+          }
+        ],
+        "trainTimeMs": 57,
+        "hyperparameters": {
+          "n_estimators": 150,
+          "max_depth": 6,
+          "class_weight": "balanced_subsample",
+          "min_samples_leaf": 8
+        },
+        "isBest": false
+      },
+      {
+        "id": "logistic",
+        "name": "Logistic Regression",
+        "family": "Linear Classifier",
+        "accuracy": 68.44,
+        "precision": 25.77,
+        "recall": 52.08,
+        "f1Score": 34.48,
+        "rocAuc": 69.92,
+        "precisionNo": 88.73,
+        "recallNo": 71.54,
+        "f1No": 79.21,
+        "confusionMatrix": {
+          "tn": 181,
+          "fp": 72,
+          "fn": 23,
+          "tp": 25
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 0.021,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.008,
+            "y": 0.042,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.024,
+            "y": 0.083,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.071,
+            "y": 0.188,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.119,
+            "y": 0.333,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.233,
+            "y": 0.458,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.364,
+            "y": 0.646,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.518,
+            "y": 0.792,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.715,
+            "y": 0.938,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.858,
+            "y": 1,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.945,
+            "y": 1,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.976,
+            "y": 1,
+            "threshold": 0.2
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.16
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.021,
+            "y": 1,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.042,
+            "y": 0.5,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.083,
+            "y": 0.4,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.188,
+            "y": 0.333,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.333,
+            "y": 0.348,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.458,
+            "y": 0.272,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.646,
+            "y": 0.252,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.792,
+            "y": 0.225,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.938,
+            "y": 0.199,
+            "threshold": 0.35
+          },
+          {
+            "x": 1,
+            "y": 0.181,
+            "threshold": 0.3
+          },
+          {
+            "x": 1,
+            "y": 0.167,
+            "threshold": 0.25
+          },
+          {
+            "x": 1,
+            "y": 0.163,
+            "threshold": 0.2
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.16
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 15.73
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 13.27
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 11.13
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 11.11
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 8.55
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 8.21
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 7.96
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 7.1
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 5.84
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 3.63
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 2.7
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 1.66
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 1.66
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 0.93
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 0.53
+          }
+        ],
+        "trainTimeMs": 18,
+        "hyperparameters": {
+          "penalty": "l2",
+          "C": 1,
+          "class_weight": "balanced",
+          "solver": "lbfgs"
+        },
+        "isBest": false
+      },
+      {
+        "id": "decision_tree",
+        "name": "Decision Tree",
+        "family": "CART Tree",
+        "accuracy": 75.42,
+        "precision": 30.3,
+        "recall": 41.67,
+        "f1Score": 35.09,
+        "rocAuc": 68.92,
+        "precisionNo": 88.09,
+        "recallNo": 81.82,
+        "f1No": 84.84,
+        "confusionMatrix": {
+          "tn": 207,
+          "fp": 46,
+          "fn": 28,
+          "tp": 20
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0.004,
+            "y": 0.083,
+            "threshold": 0.92
+          },
+          {
+            "x": 0.004,
+            "y": 0.083,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.008,
+            "y": 0.104,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.071,
+            "y": 0.292,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.087,
+            "y": 0.292,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.158,
+            "y": 0.375,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.158,
+            "y": 0.375,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.182,
+            "y": 0.417,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.182,
+            "y": 0.417,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.289,
+            "y": 0.563,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.395,
+            "y": 0.625,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.632,
+            "y": 0.854,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.656,
+            "y": 0.875,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.656,
+            "y": 0.875,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.656,
+            "y": 0.875,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.688,
+            "y": 0.896,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.893,
+            "y": 0.979,
+            "threshold": 0.08
+          },
+          {
+            "x": 0.953,
+            "y": 1,
+            "threshold": 0.05
+          },
+          {
+            "x": 0.953,
+            "y": 1,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0.083,
+            "y": 0.8,
+            "threshold": 0.92
+          },
+          {
+            "x": 0.083,
+            "y": 0.8,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.104,
+            "y": 0.714,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.292,
+            "y": 0.438,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.292,
+            "y": 0.389,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.375,
+            "y": 0.31,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.375,
+            "y": 0.31,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.417,
+            "y": 0.303,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.417,
+            "y": 0.303,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.563,
+            "y": 0.27,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.625,
+            "y": 0.231,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.854,
+            "y": 0.204,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.875,
+            "y": 0.202,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.875,
+            "y": 0.202,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.875,
+            "y": 0.202,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.896,
+            "y": 0.198,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.979,
+            "y": 0.172,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 0.166,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 0.166,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 22.57
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 18.31
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 12.65
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 11.71
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 9.89
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 7.68
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 6.84
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 6.77
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 3.19
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 0.39
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 0
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 0
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 0
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 0
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 0
+          }
+        ],
+        "trainTimeMs": 26,
+        "hyperparameters": {
+          "criterion": "gini",
+          "max_depth": 5,
+          "min_samples_leaf": 12,
+          "class_weight": "balanced"
+        },
+        "isBest": false
+      },
+      {
+        "id": "knn",
+        "name": "K-Nearest Neighbors",
+        "family": "Instance-Based",
+        "accuracy": 83.06,
+        "precision": 45.95,
+        "recall": 35.42,
+        "f1Score": 40,
+        "rocAuc": 71.85,
+        "precisionNo": 88.26,
+        "recallNo": 92.09,
+        "f1No": 90.14,
+        "confusionMatrix": {
+          "tn": 233,
+          "fp": 20,
+          "fn": 31,
+          "tp": 17
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.004,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.004,
+            "y": 0,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.008,
+            "y": 0.021,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.016,
+            "y": 0.063,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.043,
+            "y": 0.167,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.059,
+            "y": 0.229,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.142,
+            "y": 0.375,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.202,
+            "y": 0.458,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.241,
+            "y": 0.5,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.328,
+            "y": 0.625,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.344,
+            "y": 0.625,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.486,
+            "y": 0.792,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.49,
+            "y": 0.813,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.549,
+            "y": 0.854,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.755,
+            "y": 0.979,
+            "threshold": 0.08
+          },
+          {
+            "x": 0.755,
+            "y": 0.979,
+            "threshold": 0.05
+          },
+          {
+            "x": 0.755,
+            "y": 0.979,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.021,
+            "y": 0.333,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.063,
+            "y": 0.429,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.167,
+            "y": 0.421,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.229,
+            "y": 0.423,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.375,
+            "y": 0.333,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.458,
+            "y": 0.301,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.5,
+            "y": 0.282,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.625,
+            "y": 0.265,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.625,
+            "y": 0.256,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.792,
+            "y": 0.236,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.813,
+            "y": 0.239,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.854,
+            "y": 0.228,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.979,
+            "y": 0.197,
+            "threshold": 0.08
+          },
+          {
+            "x": 0.979,
+            "y": 0.197,
+            "threshold": 0.05
+          },
+          {
+            "x": 0.979,
+            "y": 0.197,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 15.73
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 13.27
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 11.13
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 11.11
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 8.55
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 8.21
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 7.96
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 7.1
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 5.84
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 3.63
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 2.7
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 1.66
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 1.66
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 0.93
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 0.53
+          }
+        ],
+        "trainTimeMs": 34,
+        "hyperparameters": {
+          "n_neighbors": 15,
+          "weights": "distance",
+          "metric": "euclidean"
+        },
+        "isBest": false
+      }
+    ]
+  },
+  "postCall": {
+    "mode": "post_call",
+    "modeLabel": "Post-Call Benchmark Pipeline (Includes Call Duration)",
+    "modeDescription": "Includes last call duration (duration). Useful only after a call concludes to score lead follow-up priority; not valid for pre-call targeting.",
+    "datasetSize": 1500,
+    "trainSize": 1199,
+    "testSize": 301,
+    "positiveClassRatio": 15.87,
+    "bestModelName": "Gradient Boosting",
+    "bestModelId": "gradient_boosting",
+    "bestModelRocAuc": 79.05,
+    "bestModelF1": 48.39,
+    "trainedAt": "2026-11-08T04:18:44.726Z",
+    "models": [
+      {
+        "id": "gradient_boosting",
+        "name": "Gradient Boosting",
+        "family": "Boosting Ensemble",
+        "accuracy": 78.74,
+        "precision": 39.47,
+        "recall": 62.5,
+        "f1Score": 48.39,
+        "rocAuc": 79.05,
+        "precisionNo": 92,
+        "recallNo": 81.82,
+        "f1No": 86.61,
+        "confusionMatrix": {
+          "tn": 207,
+          "fp": 46,
+          "fn": 18,
+          "tp": 30
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.016,
+            "y": 0.083,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.024,
+            "y": 0.25,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.063,
+            "y": 0.375,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.115,
+            "y": 0.458,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.166,
+            "y": 0.604,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.213,
+            "y": 0.708,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.273,
+            "y": 0.771,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.348,
+            "y": 0.792,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.482,
+            "y": 0.854,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.605,
+            "y": 0.896,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.791,
+            "y": 0.958,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.921,
+            "y": 0.979,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.98,
+            "y": 0.979,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.083,
+            "y": 0.5,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.25,
+            "y": 0.667,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.375,
+            "y": 0.529,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.458,
+            "y": 0.431,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.604,
+            "y": 0.408,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.708,
+            "y": 0.386,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.771,
+            "y": 0.349,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.792,
+            "y": 0.302,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.854,
+            "y": 0.252,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.896,
+            "y": 0.219,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.958,
+            "y": 0.187,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.979,
+            "y": 0.168,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.979,
+            "y": 0.159,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "duration",
+            "label": "Last Call Duration (sec)",
+            "category": "Campaign",
+            "importance": 35.67
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 9.72
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 9.21
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 7.72
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 6.81
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 5.86
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 5.63
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 4.79
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 4.47
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 4.07
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 3.43
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 1.84
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 0.45
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 0.33
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 0
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 0
+          }
+        ],
+        "trainTimeMs": 156,
+        "hyperparameters": {
+          "n_estimators": 140,
+          "learning_rate": 0.08,
+          "max_depth": 4,
+          "subsample": 0.85
+        },
+        "isBest": true
+      },
+      {
+        "id": "random_forest",
+        "name": "Random Forest",
+        "family": "Bagging Ensemble",
+        "accuracy": 84.72,
+        "precision": 53.13,
+        "recall": 35.42,
+        "f1Score": 42.5,
+        "rocAuc": 77.52,
+        "precisionNo": 88.48,
+        "recallNo": 94.07,
+        "f1No": 91.19,
+        "confusionMatrix": {
+          "tn": 238,
+          "fp": 15,
+          "fn": 31,
+          "tp": 17
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.004,
+            "y": 0,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.012,
+            "y": 0.042,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.02,
+            "y": 0.271,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.036,
+            "y": 0.333,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.083,
+            "y": 0.458,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.178,
+            "y": 0.563,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.36,
+            "y": 0.75,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.577,
+            "y": 0.875,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.715,
+            "y": 0.958,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.858,
+            "y": 0.979,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.945,
+            "y": 1,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.984,
+            "y": 1,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.78
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.72
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.042,
+            "y": 0.4,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.271,
+            "y": 0.722,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.333,
+            "y": 0.64,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.458,
+            "y": 0.512,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.563,
+            "y": 0.375,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.75,
+            "y": 0.283,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.875,
+            "y": 0.223,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.958,
+            "y": 0.203,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.979,
+            "y": 0.178,
+            "threshold": 0.2
+          },
+          {
+            "x": 1,
+            "y": 0.167,
+            "threshold": 0.16
+          },
+          {
+            "x": 1,
+            "y": 0.162,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "duration",
+            "label": "Last Call Duration (sec)",
+            "category": "Campaign",
+            "importance": 21.3
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 14.78
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 12.54
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 10.83
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 9.76
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 6.04
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 5.41
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 3.7
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 3.19
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 3.01
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 2.81
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 2.61
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 1.85
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 1.54
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 0.48
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 0.14
+          }
+        ],
+        "trainTimeMs": 45,
+        "hyperparameters": {
+          "n_estimators": 150,
+          "max_depth": 6,
+          "class_weight": "balanced_subsample",
+          "min_samples_leaf": 8
+        },
+        "isBest": false
+      },
+      {
+        "id": "logistic",
+        "name": "Logistic Regression",
+        "family": "Linear Classifier",
+        "accuracy": 74.42,
+        "precision": 32.94,
+        "recall": 58.33,
+        "f1Score": 42.11,
+        "rocAuc": 78.13,
+        "precisionNo": 90.74,
+        "recallNo": 77.47,
+        "f1No": 83.58,
+        "confusionMatrix": {
+          "tn": 196,
+          "fp": 57,
+          "fn": 20,
+          "tp": 28
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0.024,
+            "y": 0.063,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.04,
+            "y": 0.104,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.043,
+            "y": 0.333,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.063,
+            "y": 0.354,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.111,
+            "y": 0.438,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.138,
+            "y": 0.521,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.209,
+            "y": 0.583,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.292,
+            "y": 0.667,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.387,
+            "y": 0.771,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.526,
+            "y": 0.917,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.652,
+            "y": 0.979,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.818,
+            "y": 0.979,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.909,
+            "y": 1,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.968,
+            "y": 1,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.996,
+            "y": 1,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0.063,
+            "y": 0.333,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.104,
+            "y": 0.333,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.333,
+            "y": 0.593,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.354,
+            "y": 0.515,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.438,
+            "y": 0.429,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.521,
+            "y": 0.417,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.583,
+            "y": 0.346,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.667,
+            "y": 0.302,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.771,
+            "y": 0.274,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.917,
+            "y": 0.249,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.979,
+            "y": 0.222,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.979,
+            "y": 0.185,
+            "threshold": 0.25
+          },
+          {
+            "x": 1,
+            "y": 0.173,
+            "threshold": 0.2
+          },
+          {
+            "x": 1,
+            "y": 0.164,
+            "threshold": 0.16
+          },
+          {
+            "x": 1,
+            "y": 0.16,
+            "threshold": 0.12
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.08
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.05
+          },
+          {
+            "x": 1,
+            "y": 0.159,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "duration",
+            "label": "Last Call Duration (sec)",
+            "category": "Campaign",
+            "importance": 15.9
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 12.72
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 10.48
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 9.61
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 9.55
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 7.43
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 7.02
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 6.31
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 6.18
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 4.41
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 2.72
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 2.22
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 2.22
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 1.95
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 1.03
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 0.25
+          }
+        ],
+        "trainTimeMs": 17,
+        "hyperparameters": {
+          "penalty": "l2",
+          "C": 1,
+          "class_weight": "balanced",
+          "solver": "lbfgs"
+        },
+        "isBest": false
+      },
+      {
+        "id": "decision_tree",
+        "name": "Decision Tree",
+        "family": "CART Tree",
+        "accuracy": 76.08,
+        "precision": 35.37,
+        "recall": 60.42,
+        "f1Score": 44.62,
+        "rocAuc": 74.93,
+        "precisionNo": 91.32,
+        "recallNo": 79.05,
+        "f1No": 84.75,
+        "confusionMatrix": {
+          "tn": 200,
+          "fp": 53,
+          "fn": 19,
+          "tp": 29
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0.004,
+            "y": 0.083,
+            "threshold": 0.92
+          },
+          {
+            "x": 0.059,
+            "y": 0.313,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.059,
+            "y": 0.313,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.059,
+            "y": 0.313,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.15,
+            "y": 0.542,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.15,
+            "y": 0.542,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.17,
+            "y": 0.583,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.202,
+            "y": 0.604,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.209,
+            "y": 0.604,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.229,
+            "y": 0.646,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.403,
+            "y": 0.771,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.419,
+            "y": 0.771,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.478,
+            "y": 0.771,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.482,
+            "y": 0.792,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.522,
+            "y": 0.833,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.522,
+            "y": 0.833,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.628,
+            "y": 0.875,
+            "threshold": 0.08
+          },
+          {
+            "x": 0.628,
+            "y": 0.875,
+            "threshold": 0.05
+          },
+          {
+            "x": 0.874,
+            "y": 0.938,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0.083,
+            "y": 0.8,
+            "threshold": 0.92
+          },
+          {
+            "x": 0.313,
+            "y": 0.5,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.313,
+            "y": 0.5,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.313,
+            "y": 0.5,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.542,
+            "y": 0.406,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.542,
+            "y": 0.406,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.583,
+            "y": 0.394,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.604,
+            "y": 0.362,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.604,
+            "y": 0.354,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.646,
+            "y": 0.348,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.771,
+            "y": 0.266,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.771,
+            "y": 0.259,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.771,
+            "y": 0.234,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.792,
+            "y": 0.237,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.833,
+            "y": 0.233,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.833,
+            "y": 0.233,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.875,
+            "y": 0.209,
+            "threshold": 0.08
+          },
+          {
+            "x": 0.875,
+            "y": 0.209,
+            "threshold": 0.05
+          },
+          {
+            "x": 0.938,
+            "y": 0.169,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "duration",
+            "label": "Last Call Duration (sec)",
+            "category": "Campaign",
+            "importance": 52.49
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 12.63
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 6.31
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 4.39
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 4.25
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 4.19
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 3.47
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 3.32
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 3.24
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 2.95
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 1.63
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 1.13
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 0
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 0
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 0
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 0
+          }
+        ],
+        "trainTimeMs": 18,
+        "hyperparameters": {
+          "criterion": "gini",
+          "max_depth": 5,
+          "min_samples_leaf": 12,
+          "class_weight": "balanced"
+        },
+        "isBest": false
+      },
+      {
+        "id": "knn",
+        "name": "K-Nearest Neighbors",
+        "family": "Instance-Based",
+        "accuracy": 83.06,
+        "precision": 46.15,
+        "recall": 37.5,
+        "f1Score": 41.38,
+        "rocAuc": 78.59,
+        "precisionNo": 88.55,
+        "recallNo": 91.7,
+        "f1No": 90.1,
+        "confusionMatrix": {
+          "tn": 232,
+          "fp": 21,
+          "fn": 30,
+          "tp": 18
+        },
+        "rocCurve": [
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 1
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.92
+          },
+          {
+            "x": 0.004,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0.008,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.016,
+            "y": 0.063,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.032,
+            "y": 0.146,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.047,
+            "y": 0.229,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.063,
+            "y": 0.333,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.079,
+            "y": 0.354,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.087,
+            "y": 0.5,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.126,
+            "y": 0.542,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.186,
+            "y": 0.625,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.312,
+            "y": 0.75,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.332,
+            "y": 0.771,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.478,
+            "y": 0.854,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.478,
+            "y": 0.854,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.538,
+            "y": 0.896,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.696,
+            "y": 0.938,
+            "threshold": 0.08
+          },
+          {
+            "x": 0.696,
+            "y": 0.938,
+            "threshold": 0.05
+          },
+          {
+            "x": 0.696,
+            "y": 0.938,
+            "threshold": 0.02
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "threshold": 0
+          }
+        ],
+        "prCurve": [
+          {
+            "x": 0,
+            "y": 1,
+            "threshold": 0.92
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.85
+          },
+          {
+            "x": 0,
+            "y": 0,
+            "threshold": 0.78
+          },
+          {
+            "x": 0.063,
+            "y": 0.429,
+            "threshold": 0.72
+          },
+          {
+            "x": 0.146,
+            "y": 0.467,
+            "threshold": 0.66
+          },
+          {
+            "x": 0.229,
+            "y": 0.478,
+            "threshold": 0.6
+          },
+          {
+            "x": 0.333,
+            "y": 0.5,
+            "threshold": 0.55
+          },
+          {
+            "x": 0.354,
+            "y": 0.459,
+            "threshold": 0.5
+          },
+          {
+            "x": 0.5,
+            "y": 0.522,
+            "threshold": 0.45
+          },
+          {
+            "x": 0.542,
+            "y": 0.448,
+            "threshold": 0.4
+          },
+          {
+            "x": 0.625,
+            "y": 0.39,
+            "threshold": 0.35
+          },
+          {
+            "x": 0.75,
+            "y": 0.313,
+            "threshold": 0.3
+          },
+          {
+            "x": 0.771,
+            "y": 0.306,
+            "threshold": 0.25
+          },
+          {
+            "x": 0.854,
+            "y": 0.253,
+            "threshold": 0.2
+          },
+          {
+            "x": 0.854,
+            "y": 0.253,
+            "threshold": 0.16
+          },
+          {
+            "x": 0.896,
+            "y": 0.24,
+            "threshold": 0.12
+          },
+          {
+            "x": 0.938,
+            "y": 0.204,
+            "threshold": 0.08
+          },
+          {
+            "x": 0.938,
+            "y": 0.204,
+            "threshold": 0.05
+          },
+          {
+            "x": 0.938,
+            "y": 0.204,
+            "threshold": 0.02
+          }
+        ],
+        "featureImportance": [
+          {
+            "feature": "duration",
+            "label": "Last Call Duration (sec)",
+            "category": "Campaign",
+            "importance": 15.9
+          },
+          {
+            "feature": "job",
+            "label": "Occupation Category",
+            "category": "Demographic",
+            "importance": 12.72
+          },
+          {
+            "feature": "contact",
+            "label": "Communication Channel",
+            "category": "Campaign",
+            "importance": 10.48
+          },
+          {
+            "feature": "month",
+            "label": "Campaign Contact Month",
+            "category": "Campaign",
+            "importance": 9.61
+          },
+          {
+            "feature": "marital",
+            "label": "Marital Status",
+            "category": "Demographic",
+            "importance": 9.55
+          },
+          {
+            "feature": "poutcome",
+            "label": "Previous Campaign Outcome",
+            "category": "Historical",
+            "importance": 7.43
+          },
+          {
+            "feature": "education",
+            "label": "Education Level",
+            "category": "Demographic",
+            "importance": 7.02
+          },
+          {
+            "feature": "campaign",
+            "label": "Contacts in Current Campaign",
+            "category": "Campaign",
+            "importance": 6.31
+          },
+          {
+            "feature": "balance",
+            "label": "Average Yearly Balance",
+            "category": "Financial",
+            "importance": 6.18
+          },
+          {
+            "feature": "housing",
+            "label": "Housing Mortgage Loan",
+            "category": "Financial",
+            "importance": 4.41
+          },
+          {
+            "feature": "pdays",
+            "label": "Days Since Previous Campaign",
+            "category": "Historical",
+            "importance": 2.72
+          },
+          {
+            "feature": "default",
+            "label": "Credit in Default",
+            "category": "Financial",
+            "importance": 2.22
+          },
+          {
+            "feature": "loan",
+            "label": "Personal Loan Status",
+            "category": "Financial",
+            "importance": 2.22
+          },
+          {
+            "feature": "previous",
+            "label": "Previous Campaign Contacts",
+            "category": "Historical",
+            "importance": 1.95
+          },
+          {
+            "feature": "day",
+            "label": "Last Contact Day of Month",
+            "category": "Campaign",
+            "importance": 1.03
+          },
+          {
+            "feature": "age",
+            "label": "Customer Age",
+            "category": "Demographic",
+            "importance": 0.25
+          }
+        ],
+        "trainTimeMs": 25,
+        "hyperparameters": {
+          "n_neighbors": 15,
+          "weights": "distance",
+          "metric": "euclidean"
+        },
+        "isBest": false
+      }
+    ]
+  }
+}

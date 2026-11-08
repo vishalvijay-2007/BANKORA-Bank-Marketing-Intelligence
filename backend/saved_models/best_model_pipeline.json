@@ -1,0 +1,416 @@
+{
+  "bestPreCallModel": "Gradient Boosting",
+  "bestPostCallModel": "Gradient Boosting",
+  "trainedAt": "2026-11-08T04:18:44.460Z",
+  "preCallPreprocessor": {
+    "excludeDuration": true,
+    "numericCols": [
+      "age",
+      "balance",
+      "day",
+      "campaign",
+      "pdays",
+      "previous"
+    ],
+    "means": [
+      42.2652210175146,
+      1600.209341117598,
+      14.724770642201834,
+      4.391993327773144,
+      33.2860717264387,
+      0.6388657214345288
+    ],
+    "stds": [
+      13.32019417054327,
+      2292.0378971156492,
+      8.287734957083954,
+      4.5112927654167505,
+      84.44872440546195,
+      1.539750978366455
+    ],
+    "categoricalCols": [
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "month",
+      "poutcome"
+    ],
+    "categoriesMap": {
+      "job": [
+        "admin.",
+        "blue-collar",
+        "entrepreneur",
+        "housemaid",
+        "management",
+        "retired",
+        "self-employed",
+        "services",
+        "student",
+        "technician",
+        "unemployed",
+        "unknown"
+      ],
+      "marital": [
+        "divorced",
+        "married",
+        "single"
+      ],
+      "education": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "unknown"
+      ],
+      "default": [
+        "no",
+        "yes"
+      ],
+      "housing": [
+        "no",
+        "yes"
+      ],
+      "loan": [
+        "no",
+        "yes"
+      ],
+      "contact": [
+        "cellular",
+        "telephone",
+        "unknown"
+      ],
+      "month": [
+        "apr",
+        "aug",
+        "dec",
+        "feb",
+        "jan",
+        "jul",
+        "jun",
+        "mar",
+        "may",
+        "nov",
+        "oct",
+        "sep"
+      ],
+      "poutcome": [
+        "failure",
+        "other",
+        "success",
+        "unknown"
+      ]
+    },
+    "featureNames": [
+      "age",
+      "balance",
+      "day",
+      "campaign",
+      "pdays",
+      "previous",
+      "job=admin.",
+      "job=blue-collar",
+      "job=entrepreneur",
+      "job=housemaid",
+      "job=management",
+      "job=retired",
+      "job=self-employed",
+      "job=services",
+      "job=student",
+      "job=technician",
+      "job=unemployed",
+      "job=unknown",
+      "marital=divorced",
+      "marital=married",
+      "marital=single",
+      "education=primary",
+      "education=secondary",
+      "education=tertiary",
+      "education=unknown",
+      "default=no",
+      "default=yes",
+      "housing=no",
+      "housing=yes",
+      "loan=no",
+      "loan=yes",
+      "contact=cellular",
+      "contact=telephone",
+      "contact=unknown",
+      "month=apr",
+      "month=aug",
+      "month=dec",
+      "month=feb",
+      "month=jan",
+      "month=jul",
+      "month=jun",
+      "month=mar",
+      "month=may",
+      "month=nov",
+      "month=oct",
+      "month=sep",
+      "poutcome=failure",
+      "poutcome=other",
+      "poutcome=success",
+      "poutcome=unknown"
+    ],
+    "featureLabels": {
+      "age": {
+        "label": "Customer Age",
+        "category": "Demographic"
+      },
+      "balance": {
+        "label": "Average Yearly Balance",
+        "category": "Financial"
+      },
+      "day": {
+        "label": "Last Contact Day of Month",
+        "category": "Campaign"
+      },
+      "campaign": {
+        "label": "Contacts in Current Campaign",
+        "category": "Campaign"
+      },
+      "pdays": {
+        "label": "Days Since Previous Campaign",
+        "category": "Historical"
+      },
+      "previous": {
+        "label": "Previous Campaign Contacts",
+        "category": "Historical"
+      },
+      "job=admin.": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=blue-collar": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=entrepreneur": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=housemaid": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=management": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=retired": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=self-employed": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=services": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=student": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=technician": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=unemployed": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "job=unknown": {
+        "label": "Occupation Category",
+        "category": "Demographic"
+      },
+      "marital=divorced": {
+        "label": "Marital Status",
+        "category": "Demographic"
+      },
+      "marital=married": {
+        "label": "Marital Status",
+        "category": "Demographic"
+      },
+      "marital=single": {
+        "label": "Marital Status",
+        "category": "Demographic"
+      },
+      "education=primary": {
+        "label": "Education Level",
+        "category": "Demographic"
+      },
+      "education=secondary": {
+        "label": "Education Level",
+        "category": "Demographic"
+      },
+      "education=tertiary": {
+        "label": "Education Level",
+        "category": "Demographic"
+      },
+      "education=unknown": {
+        "label": "Education Level",
+        "category": "Demographic"
+      },
+      "default=no": {
+        "label": "Credit in Default",
+        "category": "Financial"
+      },
+      "default=yes": {
+        "label": "Credit in Default",
+        "category": "Financial"
+      },
+      "housing=no": {
+        "label": "Housing Mortgage Loan",
+        "category": "Financial"
+      },
+      "housing=yes": {
+        "label": "Housing Mortgage Loan",
+        "category": "Financial"
+      },
+      "loan=no": {
+        "label": "Personal Loan Status",
+        "category": "Financial"
+      },
+      "loan=yes": {
+        "label": "Personal Loan Status",
+        "category": "Financial"
+      },
+      "contact=cellular": {
+        "label": "Communication Channel",
+        "category": "Campaign"
+      },
+      "contact=telephone": {
+        "label": "Communication Channel",
+        "category": "Campaign"
+      },
+      "contact=unknown": {
+        "label": "Communication Channel",
+        "category": "Campaign"
+      },
+      "month=apr": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=aug": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=dec": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=feb": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=jan": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=jul": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=jun": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=mar": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=may": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=nov": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=oct": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "month=sep": {
+        "label": "Campaign Contact Month",
+        "category": "Campaign"
+      },
+      "poutcome=failure": {
+        "label": "Previous Campaign Outcome",
+        "category": "Historical"
+      },
+      "poutcome=other": {
+        "label": "Previous Campaign Outcome",
+        "category": "Historical"
+      },
+      "poutcome=success": {
+        "label": "Previous Campaign Outcome",
+        "category": "Historical"
+      },
+      "poutcome=unknown": {
+        "label": "Previous Campaign Outcome",
+        "category": "Historical"
+      }
+    }
+  },
+  "logisticWeights": {
+    "weights": [
+      -0.01713957703428398,
+      0.23035476923451464,
+      0.030055701140680697,
+      -0.25844886230737546,
+      0.1177302263631165,
+      0.08760505476959408,
+      -0.03107118958115662,
+      -0.07951265542079668,
+      -0.026450938873879604,
+      -0.002691954574159802,
+      0.09405958057373133,
+      0.07495254645993112,
+      0.01575315921325308,
+      -0.06152555402183343,
+      0.029225441581227227,
+      -0.0715428149237658,
+      -0.009320590141058264,
+      0.014285268995253302,
+      -0.033105896742877984,
+      -0.17414585953575842,
+      0.15341205556538215,
+      -0.061477112044444296,
+      -0.10352136027069142,
+      0.11174103372384636,
+      -0.0005822621219647643,
+      -0.0487114932884604,
+      -0.005128207424793867,
+      0.06780346755629212,
+      -0.12164316826954631,
+      -0.016454273930690554,
+      -0.037385426782563624,
+      0.18842243047827212,
+      -0.02779592389369098,
+      -0.21446620729783522,
+      0.018172705920713336,
+      0.014094711350898608,
+      0.019849749640135254,
+      0.029066817072345923,
+      -0.01905494594891172,
+      -0.005740534144462355,
+      -0.01973867521835343,
+      0.037074225326838205,
+      -0.1199701475548029,
+      -0.04291745418592772,
+      0.02298592479473165,
+      0.012337922233540922,
+      -0.047664945496570264,
+      -0.01961392236075291,
+      0.10625075848465025,
+      -0.09281159134058131
+    ],
+    "bias": -0.054616579598436174
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "BANKORA – Bank Marketing Intelligence",
+  "description": "Production-grade fintech SaaS platform for customer term deposit subscription prediction, marketing campaign analytics, and machine learning model evaluation using the UCI Bank Marketing dataset.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
