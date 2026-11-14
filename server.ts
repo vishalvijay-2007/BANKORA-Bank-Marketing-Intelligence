@@ -31,7 +31,7 @@ const backendDir = path.resolve(process.cwd(), 'backend');
 if (!fs.existsSync(backendDir)) {
   fs.mkdirSync(backendDir, { recursive: true });
 }
-const dbPath = path.join(backendDir, 'bankora.db');
+const dbPath = process.env.DB_PATH || path.join(backendDir, 'bankora.db');
 const db = new Database(dbPath);
 
 // Enable foreign keys
