@@ -11,7 +11,7 @@
     "bestModelId": "gradient_boosting",
     "bestModelRocAuc": 72.91,
     "bestModelF1": 39.29,
-    "trainedAt": "2026-11-14T04:38:55.085Z",
+    "trainedAt": "2026-11-14T04:52:47.549Z",
     "models": [
       {
         "id": "gradient_boosting",
@@ -327,7 +327,7 @@
             "importance": 0
           }
         ],
-        "trainTimeMs": 294,
+        "trainTimeMs": 263,
         "hyperparameters": {
           "n_estimators": 140,
           "learning_rate": 0.08,
@@ -650,7 +650,7 @@
             "importance": 0
           }
         ],
-        "trainTimeMs": 117,
+        "trainTimeMs": 109,
         "hyperparameters": {
           "n_estimators": 150,
           "max_depth": 6,
@@ -973,7 +973,7 @@
             "importance": 0.53
           }
         ],
-        "trainTimeMs": 55,
+        "trainTimeMs": 76,
         "hyperparameters": {
           "penalty": "l2",
           "C": 1,
@@ -1296,7 +1296,7 @@
             "importance": 0
           }
         ],
-        "trainTimeMs": 44,
+        "trainTimeMs": 74,
         "hyperparameters": {
           "criterion": "gini",
           "max_depth": 5,
@@ -1619,7 +1619,7 @@
             "importance": 0.53
           }
         ],
-        "trainTimeMs": 57,
+        "trainTimeMs": 52,
         "hyperparameters": {
           "n_neighbors": 15,
           "weights": "distance",
@@ -1641,7 +1641,7 @@
     "bestModelId": "gradient_boosting",
     "bestModelRocAuc": 79.05,
     "bestModelF1": 48.39,
-    "trainedAt": "2026-11-14T04:38:55.602Z",
+    "trainedAt": "2026-11-14T04:52:48.060Z",
     "models": [
       {
         "id": "gradient_boosting",
@@ -1963,7 +1963,7 @@
             "importance": 0
           }
         ],
-        "trainTimeMs": 300,
+        "trainTimeMs": 310,
         "hyperparameters": {
           "n_estimators": 140,
           "learning_rate": 0.08,
@@ -2292,7 +2292,7 @@
             "importance": 0.14
           }
         ],
-        "trainTimeMs": 82,
+        "trainTimeMs": 87,
         "hyperparameters": {
           "n_estimators": 150,
           "max_depth": 6,
@@ -2621,7 +2621,7 @@
             "importance": 0.25
           }
         ],
-        "trainTimeMs": 35,
+        "trainTimeMs": 27,
         "hyperparameters": {
           "penalty": "l2",
           "C": 1,
@@ -3279,7 +3279,7 @@
             "importance": 0.25
           }
         ],
-        "trainTimeMs": 53,
+        "trainTimeMs": 48,
         "hyperparameters": {
           "n_neighbors": 15,
           "weights": "distance",
