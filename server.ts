@@ -27,11 +27,23 @@ app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 
 // Initialize SQLite database in /backend/bankora.db
+// Initialize SQLite database
 const backendDir = path.resolve(process.cwd(), 'backend');
-if (!fs.existsSync(backendDir)) {
-  fs.mkdirSync(backendDir, { recursive: true });
-}
-const dbPath = process.env.DB_PATH || path.join(backendDir, 'bankora.db');
+
+fs.mkdirSync(backendDir, { recursive: true });
+
+const configuredDbPath = process.env.DB_PATH?.trim();
+
+const dbPath = configuredDbPath
+  ? path.resolve(configuredDbPath)
+  : path.join(backendDir, 'bankora.db');
+
+const dbDirectory = path.dirname(dbPath);
+
+fs.mkdirSync(dbDirectory, { recursive: true });
+
+console.log(`BANKORA SQLite database location: ${dbPath}`);
+
 const db = new Database(dbPath);
 
 // Enable foreign keys
